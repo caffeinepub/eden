@@ -1,0 +1,89 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-13T21:31:31.002Z",
+  "summary": "Frontend implements a single-page Eden site with hero/about/how/guestbook/footer sections and a custom peaceful theme. Guestbook UI uses React Query and calls backend actor methods. However, backend guestbook persistence/stable types and optional-name modeling appear not implemented correctly, and the required generated image assets themselves are not present in the diff (only referenced). Some extra features (Internet Identity provider/hooks, caffeine.ai attribution) were added beyond the request.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Guestbook data persists across canister upgrades and uses a stable, serializable type; entry includes message, optional name, timestamp.",
+      "reason": "backend/main.mo defines `let guestbook = List.empty<GuestbookEntry>()` (not stable) and mutates it with `guestbook.add(entry)` even though `List` is an immutable data structure; there is no `stable var` / upgrade hooks shown, and `name` is not optional (stored as `Text` with an \"Anonymous\" fallback).",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Backend returns guestbook entries in reverse-chronological order (newest first).",
+      "reason": "backend/main.mo sorts with `compareByTimestamp` (ascending) and does not reverse; frontend re-sorts, but the requirement explicitly calls for the backend to return reverse-chronological order.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useGuestbook.ts"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Place the generated images in frontend/public/assets/generated and reference them directly in the UI.",
+      "reason": "UI references the images by path, but the diff summary does not show the actual image files added under `frontend/public/assets/generated`.",
+      "evidence": [
+        "frontend/src/components/eden/HeroSection.tsx",
+        "frontend/src/components/eden/SiteHeader.tsx",
+        "frontend/src/components/eden/SiteFooter.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added an Internet Identity provider and identity-aware actor creation hooks (login/logout context) even though sign-in flows are a non-goal and II was not required for this build.",
+      "reason": "BuildRequest says Internet Identity is allowed but not required, and explicitly lists user accounts/sign-in flows as non-goals; the diff adds `useInternetIdentity` context, `InternetIdentityProvider`, and `useActor` logic based on identity.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    },
+    {
+      "description": "Added a footer attribution/link to caffeine.ai with UTM tracking.",
+      "reason": "Not mentioned in any requirement; adds external branding/attribution beyond the Eden site spec.",
+      "evidence": [
+        "frontend/src/components/eden/SiteFooter.tsx"
+      ]
+    },
+    {
+      "description": "Introduced additional Tailwind plugins and lucide-react icon usage as part of the implementation.",
+      "reason": "Not requested explicitly; may be acceptable for theming/UI, but it is additional functionality/dependencies beyond the stated requirements.",
+      "evidence": [
+        "frontend/tailwind.config.js",
+        "frontend/src/components/eden/AboutSection.tsx",
+        "frontend/src/components/eden/HeroSection.tsx",
+        "frontend/src/components/eden/HowSection.tsx",
+        "frontend/src/components/eden/SiteHeader.tsx",
+        "frontend/src/components/eden/SiteFooter.tsx",
+        "frontend/src/components/eden/GuestbookSection.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/eden/AboutSection.tsx",
+    "frontend/src/components/eden/GuestbookSection.tsx",
+    "frontend/src/components/eden/HeroSection.tsx",
+    "frontend/src/components/eden/HowSection.tsx",
+    "frontend/src/components/eden/Section.tsx",
+    "frontend/src/components/eden/SiteFooter.tsx",
+    "frontend/src/components/eden/SiteHeader.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useGuestbook.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

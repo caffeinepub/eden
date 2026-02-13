@@ -1,0 +1,87 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-responsive-single-page-website-for-a-place-named-eden-that-communicates-the-idea-that-eden-brings-peace-to-the-whole-earth-with-clear-sections-and-polished-english-copy",
+      "featureTitle": "Create a responsive single-page website for a place named “Eden” that communicates the idea that Eden brings peace to the whole earth, with clear sections and polished English copy.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/components/eden/SiteFooter.tsx",
+        "frontend/src/components/eden/SiteHeader.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-distinctive-visual-theme-appropriate-for-a-peaceful-eden-concept-color-palette-typography-spacing-and-component-styling-and-use-it-consistently-across-the-site-avoid-default-plain-styling",
+      "featureTitle": "Apply a coherent, distinctive visual theme appropriate for a peaceful Eden concept (color palette, typography, spacing, and component styling) and use it consistently across the site (avoid default/plain styling).",
+      "files": [
+        "frontend/src/components/eden/Section.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-messages-of-peace-guestbook-section-that-lets-visitors-submit-a-short-message-name-optional-and-view-the-latest-messages",
+      "featureTitle": "Add a “Messages of Peace” guestbook section that lets visitors submit a short message (name optional) and view the latest messages.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/eden/GuestbookSection.tsx",
+        "frontend/src/hooks/useGuestbook.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-images-as-static-assets-and-use-them-in-the-ui-hero-background-illustration-and-a-simple-eden-mark",
+      "featureTitle": "Add the required generated images as static assets and use them in the UI (hero background/illustration and a simple Eden mark).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/eden/HeroSection.tsx",
+        "frontend/src/components/eden/SiteFooter.tsx",
+        "frontend/src/components/eden/SiteHeader.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

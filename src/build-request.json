@@ -1,0 +1,127 @@
+{
+  "kind": "build_request",
+  "title": "Eden peace-themed website with guestbook",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive single-page website for a place named “Eden” that communicates the idea that Eden brings peace to the whole earth, with clear sections and polished English copy.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a website about a place named eden that brings peace to the whole earth"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Landing page renders without errors on desktop and mobile widths",
+        "Page contains, at minimum: a hero section, an “About Eden” section, a “How Eden Brings Peace” section, and a footer",
+        "All user-facing text is in English and consistently references Eden’s peace mission"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Apply a coherent, distinctive visual theme appropriate for a peaceful Eden concept (color palette, typography, spacing, and component styling) and use it consistently across the site (avoid default/plain styling).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a website about a place named eden that brings peace to the whole earth"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Theme is applied consistently across all sections (headings, body text, buttons/links, cards)",
+        "Color palette and typography communicate a calm/peaceful aesthetic and are readable with sufficient contrast",
+        "Layout uses consistent spacing and a clear visual hierarchy"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a “Messages of Peace” guestbook section that lets visitors submit a short message (name optional) and view the latest messages.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a website about a place named eden that brings peace to the whole earth"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Frontend includes a form with validation (non-empty message; reasonable max lengths) and a list of submitted entries",
+        "Backend stores guestbook entries persistently and returns them in reverse-chronological order",
+        "Submitting a message updates the list in the UI without a full page refresh"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a Motoko backend API for the guestbook with methods to add an entry and list entries, including timestamps.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a website about a place named eden that brings peace to the whole earth"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes a method to create a guestbook entry with fields: message, optional name, timestamp",
+        "Backend exposes a query method to list recent entries with a stable, serializable type",
+        "Data persists across canister upgrades (add migration only if required by state changes)"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add the required generated images as static assets and use them in the UI (hero background/illustration and a simple Eden mark).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make a website about a place named eden that brings peace to the whole earth"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are placed in frontend/public/assets/generated and referenced directly by the frontend",
+        "Hero section displays the hero image appropriately (responsive sizing, no distortion)",
+        "Site displays the Eden mark/logo in the header and/or footer"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text",
+    "Respect the single-actor Motoko backend architecture (all logic in backend/main.mo)",
+    "Do not modify files under frontend/src/components/ui or any frontend immutablePaths (compose components instead)",
+    "Do not add third-party authentication providers; only Internet Identity is allowed (not required for this build)",
+    "Do not use external databases or non-Motoko backend services"
+  ],
+  "nonGoals": [
+    "User accounts or sign-in flows",
+    "Real-time chat or WebSocket-based updates",
+    "Email sending or external contact integrations",
+    "Admin/moderation dashboard for guestbook entries"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Serene Eden valley landscape with soft light, gentle river, distant mountains, calm atmosphere (eden-hero.dim_1920x1080.png)",
+      "Minimal circular Eden emblem with a simple leaf/dove motif, flat style (eden-mark.dim_512x512.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

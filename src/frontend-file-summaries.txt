@@ -1,0 +1,14 @@
+{
+  "frontend/src/index.css": "Global styles with peaceful Eden color palette (soft greens, sky blues, earth tones) using OKLCH, custom typography (Playfair Display for headings, Inter for body), and animation utilities for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Eden's peaceful color system, custom border radius, soft shadows with glow effects, and fade-in animations.",
+  "frontend/index.html": "HTML entry point with updated title and meta description for Eden's peace mission.",
+  "frontend/src/App.tsx": "Main application component that composes the single-page layout with header, hero, about, how, guestbook sections, and footer.",
+  "frontend/src/components/eden/SiteHeader.tsx": "Sticky header with Eden logo, smooth-scroll navigation links to page sections, and a \"Share Peace\" call-to-action button.",
+  "frontend/src/components/eden/HeroSection.tsx": "Hero section with full-screen Eden landscape background image, welcoming headline, peaceful tagline, and scroll-to-about call-to-action.",
+  "frontend/src/components/eden/AboutSection.tsx": "About section explaining Eden's vision with three feature cards (Natural Harmony, Inner Peace, Global Impact) using icons and descriptive text.",
+  "frontend/src/components/eden/HowSection.tsx": "Mission section detailing four ways Eden brings peace (Sanctuary of Nature, Mindful Practices, Community & Connection, Ripple Effect) with icons and detailed descriptions.",
+  "frontend/src/components/eden/GuestbookSection.tsx": "Interactive guestbook section with validated submission form (name optional, message required with 500 char limit) and reverse-chronological list of peace messages with timestamps.",
+  "frontend/src/components/eden/Section.tsx": "Reusable section wrapper component providing consistent spacing, max-width container, and optional ID for scroll navigation.",
+  "frontend/src/components/eden/SiteFooter.tsx": "Footer with Eden logo, mission statement, three-column layout, copyright notice, and required caffeine.ai attribution with UTM tracking.",
+  "frontend/src/hooks/useGuestbook.ts": "React Query hook managing guestbook state with getAllEntries query (sorted newest first) and addEntry mutation with automatic cache invalidation."
+}

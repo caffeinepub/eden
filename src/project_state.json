@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Website project about a place named Eden that brings peace to the whole earth.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Serene Eden valley landscape with soft light, gentle river, distant mountains, calm atmosphere (eden-hero.dim_1920x1080.png)\n- Minimal circular Eden emblem with a simple leaf/dove motif, flat style (eden-mark.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-single-page-website-for-a-place-named-eden-that-communicates-the-idea-that-eden-brings-peace-to-the-whole-earth-with-clear-sections-and-polished-english-copy",
+      "title": "Create a responsive single-page website for a place named “Eden” that communicates the idea that Eden brings peace to the whole earth, with clear sections and polished English copy.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-distinctive-visual-theme-appropriate-for-a-peaceful-eden-concept-color-palette-typography-spacing-and-component-styling-and-use-it-consistently-across-the-site-avoid-default-plain-styling",
+      "title": "Apply a coherent, distinctive visual theme appropriate for a peaceful Eden concept (color palette, typography, spacing, and component styling) and use it consistently across the site (avoid default/plain styling).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-messages-of-peace-guestbook-section-that-lets-visitors-submit-a-short-message-name-optional-and-view-the-latest-messages",
+      "title": "Add a “Messages of Peace” guestbook section that lets visitors submit a short message (name optional) and view the latest messages.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-generated-images-as-static-assets-and-use-them-in-the-ui-hero-background-illustration-and-a-simple-eden-mark",
+      "title": "Add the required generated images as static assets and use them in the UI (hero background/illustration and a simple Eden mark).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a website about a place named Eden that brings peace to the whole earth.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement a Motoko backend API for the guestbook with methods to add an entry and list entries, including timestamps.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Eden",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,136 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Eden peace-themed single-page site with guestbook (frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive single-page Eden site with hero, About, How Eden Brings Peace, and footer sections using polished English copy.",
+      "acceptanceCriteria": [
+        "Landing page renders without errors on desktop and mobile widths",
+        "Page contains, at minimum: a hero section, an “About Eden” section, a “How Eden Brings Peace” section, and a footer",
+        "All user-facing text is in English and consistently references Eden’s peace mission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page layout (hero, About Eden, How Eden Brings Peace, Messages of Peace guestbook section placeholder, footer) with responsive structure and polished English copy."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Ensure document metadata supports the Eden single-page experience (title/description as needed) while keeping English-only user-facing text."
+        },
+        {
+          "path": "frontend/src/components/eden/SiteHeader.tsx",
+          "operation": "create",
+          "description": "Create a header component that anchors navigation to page sections (single-page in-page links) and provides consistent top-level structure."
+        },
+        {
+          "path": "frontend/src/components/eden/SiteFooter.tsx",
+          "operation": "create",
+          "description": "Create a footer component with concise Eden peace mission copy and required logo/mark placement wiring (actual mark usage implemented under REQ-5)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a cohesive peaceful Eden visual theme (palette, typography, spacing, hierarchy) consistently across the site.",
+      "acceptanceCriteria": [
+        "Theme is applied consistently across all sections (headings, body text, buttons/links, cards)",
+        "Color palette and typography communicate a calm/peaceful aesthetic and are readable with sufficient contrast",
+        "Layout uses consistent spacing and a clear visual hierarchy"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styling and theme tokens (calm palette, readable typography defaults, consistent spacing rules) and set base styles for body, headings, links, and section spacing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions (colors/radius/shadows/typography defaults) to support the Eden peaceful aesthetic consistently across sections."
+        },
+        {
+          "path": "frontend/src/components/eden/Section.tsx",
+          "operation": "create",
+          "description": "Create a reusable section wrapper component to enforce consistent spacing, max-width, and hierarchy across hero/about/how/guestbook/footer sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a “Messages of Peace” guestbook section with a validated submission form and latest-messages list that updates without full refresh.",
+      "acceptanceCriteria": [
+        "Frontend includes a form with validation (non-empty message; reasonable max lengths) and a list of submitted entries",
+        "Backend stores guestbook entries persistently and returns them in reverse-chronological order",
+        "Submitting a message updates the list in the UI without a full page refresh"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/eden/GuestbookSection.tsx",
+          "operation": "create",
+          "description": "Implement the “Messages of Peace” section UI: name (optional) + message form, inline validation, submit loading/error states, and a reverse-chronological list view rendered from fetched entries."
+        },
+        {
+          "path": "frontend/src/hooks/useGuestbook.ts",
+          "operation": "create",
+          "description": "Create a React Query-based hook to fetch entries and submit a new entry, invalidating/refetching the entries list on successful submission (no full page reload)."
+        },
+        {
+          "path": "frontend/src/lib/backendClient.ts",
+          "operation": "create",
+          "description": "Create a small client wrapper around the existing backend interface (addEntry/getAllEntries) to be used by the guestbook hook for safe, typed calls."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the GuestbookSection into the single-page layout so it is reachable as a clear section and uses the shared theme/section wrapper."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add the required generated images as static assets and wire them into the hero and header/footer as Eden visuals.",
+      "acceptanceCriteria": [
+        "Generated images are placed in frontend/public/assets/generated and referenced directly by the frontend",
+        "Hero section displays the hero image appropriately (responsive sizing, no distortion)",
+        "Site displays the Eden mark/logo in the header and/or footer"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/eden-hero.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated hero image asset at the exact required path: frontend/public/assets/generated/eden-hero.dim_1920x1080.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/eden-mark.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated Eden mark asset at the exact required path: frontend/public/assets/generated/eden-mark.dim_512x512.png."
+        },
+        {
+          "path": "frontend/src/components/eden/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create the hero section that references frontend/public/assets/generated/eden-hero.dim_1920x1080.png with responsive sizing (no distortion) and overlays Eden peace-mission copy."
+        },
+        {
+          "path": "frontend/src/components/eden/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Wire the Eden mark into the header by referencing frontend/public/assets/generated/eden-mark.dim_512x512.png (ensure accessible alt text and responsive sizing)."
+        },
+        {
+          "path": "frontend/src/components/eden/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Optionally repeat the Eden mark in the footer by referencing frontend/public/assets/generated/eden-mark.dim_512x512.png to satisfy the mark placement requirement."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire HeroSection into the page top so the generated hero image is visible on initial load and consistent with the overall single-page structure."
+        }
+      ]
+    }
+  ]
+}
